@@ -10,4 +10,6 @@ class Department(Base):
 
     users = relationship("User", back_populates="department")
     divisions = relationship("Division", back_populates="department")
-
+    class Config:
+        from_attributes = True
+        arbitrary_types_allowed = True

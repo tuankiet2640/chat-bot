@@ -1,8 +1,8 @@
 from typing import List, Optional
 from pydantic import BaseModel
 
-from app.models.division import Division
-from app.models.user import User
+from app.schemas.division import Division
+from app.schemas.user import User
 
 
 class DepartmentBase(BaseModel):
@@ -16,8 +16,8 @@ class DepartmentUpdate(DepartmentBase):
 
 class Department(DepartmentBase):
     id: int
-    users: Optional[List["User"]] = []  # References users in this department
-    divisions: Optional[List["Division"]] = []  # References divisions
+    users: Optional[List["User"]] = []
+    divisions: Optional[List["Division"]] = []
 
     class Config:
         orm_mode = True

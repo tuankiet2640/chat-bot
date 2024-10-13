@@ -11,3 +11,8 @@ class Division(Base):
 
     department = relationship("Department", back_populates="divisions")
     users = relationship("User", back_populates="division")
+
+
+    class Config:
+        from_attributes = True
+        arbitrary_types_allowed = True

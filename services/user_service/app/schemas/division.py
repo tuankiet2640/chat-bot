@@ -1,18 +1,22 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import List, Optional
+
+from app.schemas.department import Department
+from app.schemas.user import User
+
 
 class DivisionBase(BaseModel):
     name: str
 
 class DivisionCreate(DivisionBase):
-    department_id: int
+    pass
 
 class DivisionUpdate(DivisionBase):
-    department_id: Optional[int] = None
+    pass
 
 class Division(DivisionBase):
     id: int
-    department_id: int
+    departments: Optional[List["Department"]] = []
 
     class Config:
         orm_mode = True

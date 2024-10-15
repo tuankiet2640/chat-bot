@@ -7,12 +7,13 @@ class Division(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
-    department_id = Column(Integer, ForeignKey("departments.id"))
 
-    department = relationship("Department", back_populates="divisions")
+    departments = relationship("Department", back_populates="division")
     users = relationship("User", back_populates="division")
 
 
     class Config:
         from_attributes = True
         arbitrary_types_allowed = True
+
+# TODO: ADD MORE FIELDS

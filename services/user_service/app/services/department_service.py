@@ -9,7 +9,7 @@ def get_departments(db: Session, skip: int = 0, limit: int = 100):
     return db.query(Department).offset(skip).limit(limit).all()
 
 def create_department(db: Session, department: DepartmentCreate):
-    db_department = Department(name=department.name)
+    db_department = Department(name=department.name, division_id=department.division_id)
     db.add(db_department)
     db.commit()
     db.refresh(db_department)
